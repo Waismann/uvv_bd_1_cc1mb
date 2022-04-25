@@ -16,102 +16,55 @@ USE uvv;
 
 
 CREATE TABLE funcionario (
-                cpf CHAR(11) NOT NULL,
-                primeiro_nome VARCHAR(15) NOT NULL,
-                nome_meio CHAR(1),
-                ultimo_nome VARCHAR(15) NOT NULL,
-                data_nascimento DATE,
-                endereco VARCHAR(50),
-                sexo CHAR(1),
-                salario DECIMAL(10,2),
-                cpf_supervisor CHAR(11) NOT NULL,
-                numero_departamento INT NOT NULL,
-                PRIMARY KEY (cpf)
+                cpf char(11) not null,
+                primeiro_nome varchar(15) not null,
+                nome_meio char(1),
+                ultimo_nome varchar(15) not null,
+                data_nascimento date,
+                endereco varchar(50),
+                sexo char(1),
+                salario decimal(10,2),
+                cpf_supervisor char(11),
+                numero_departamento int not null,
+                primary key (cpf)
 );
 
-ALTER TABLE funcionario COMMENT 'References
-
-funcionario through (cpf_gerente)
-Referenced By
-
-localizacoes_departamento referencing (numero_departamento)
-projeto referencing (numero_departamento)';
-
-ALTER TABLE funcionario MODIFY COLUMN cpf CHAR(11) COMMENT 'CPF do funcionário. Será a PK da tabela.';
-
-ALTER TABLE funcionario MODIFY COLUMN primeiro_nome VARCHAR(15) COMMENT 'Primeiro nome do funcionário.';
-
-ALTER TABLE funcionario MODIFY COLUMN nome_meio CHAR(1) COMMENT 'Inicial do nome do meio.';
-
-ALTER TABLE funcionario MODIFY COLUMN ultimo_nome VARCHAR(15) COMMENT 'Sobrenome do funcionário.';
-
-ALTER TABLE funcionario MODIFY COLUMN endereco VARCHAR(50) COMMENT 'Endereço do funcionário.';
-
-ALTER TABLE funcionario MODIFY COLUMN sexo CHAR(1) COMMENT 'Sexo do funcionário.';
-
-ALTER TABLE funcionario MODIFY COLUMN salario DECIMAL(10, 2) COMMENT 'Salário do funcionário.';
-
-ALTER TABLE funcionario MODIFY COLUMN cpf_supervisor CHAR(11) COMMENT 'CPF do supervisor. Será uma FK para a própria tabela (um auto-relacionamento).';
-
-ALTER TABLE funcionario MODIFY COLUMN numero_departamento INTEGER COMMENT 'Número do departamento do funcionário.';
-
-
-CREATE TABLE dependente (
-                cpf_funcionario CHAR(11) NOT NULL,
-                nome_dependente VARCHAR(15) NOT NULL,
-                sexo CHAR(1),
-                data_nascimento DATE,
-                parentesco VARCHAR(15),
-                PRIMARY KEY (cpf_funcionario, nome_dependente)
-);
-
-ALTER TABLE dependente MODIFY COLUMN cpf_funcionario CHAR(11) COMMENT 'CPF do funcionário. Faz parte da PK desta tabela e é uma FK para a tabela funcionário.';
-
-ALTER TABLE dependente MODIFY COLUMN nome_dependente VARCHAR(15) COMMENT 'Nome do dependente. Faz parte da PK desta tabela.';
-
-ALTER TABLE dependente MODIFY COLUMN sexo CHAR(1) COMMENT 'Sexo do dependente.';
-
-ALTER TABLE dependente MODIFY COLUMN data_nascimento DATE COMMENT 'Data de nascimento do dependente.';
-
-ALTER TABLE dependente MODIFY COLUMN parentesco VARCHAR(15) COMMENT 'Descrição do parentesco do dependente com o funcionário.';
+ALTER TABLE funcionario COMMENT 'Tabela que armazena as informações dos funcionários.';
 
 
 CREATE TABLE departamento (
-                numero_departamento INT NOT NULL,
-                nome_departamento VARCHAR(15) NOT NULL,
-                cpf_gerente CHAR(11) NOT NULL,
-                data_inicio_gerente DATE,
-                PRIMARY KEY (numero_departamento)
+                numero_departamento int not null,
+                nome_departamento varchar(15) not null,
+                cpf_gerente char(11) not null,
+                data_inicio_gerente date,
+                primary key (numero_departamento)
 );
 
-ALTER TABLE departamento MODIFY COLUMN numero_departamento INTEGER COMMENT 'Número do departamento. É a PK desta tabela.';
-
-ALTER TABLE departamento MODIFY COLUMN nome_departamento VARCHAR(15) COMMENT 'Nome do departamento. Deve ser único.';
-
-ALTER TABLE departamento MODIFY COLUMN cpf_gerente CHAR(11) COMMENT 'CPF do gerente do departamento. É uma FK para a tabela funcionários.';
-
-ALTER TABLE departamento MODIFY COLUMN data_inicio_gerente DATE COMMENT 'Data do início do gerente no departamento.';
+ALTER TABLE departamento COMMENT 'Tabela que armazena as informações dos departamentos.';
 
 
 CREATE UNIQUE INDEX departamento_idx
  ON departamento
  ( nome_departamento );
 
-CREATE TABLE projeto (
-                numero_projeto INT NOT NULL,
-                nome_projeto VARCHAR(15) NOT NULL,
-                local_projeto VARCHAR(15),
-                numero_departamento INT NOT NULL,
-                PRIMARY KEY (numero_projeto)
+CREATE TABLE localizacoes_departamento (
+                numero_departamento int not null,
+                local varchar(15) not null,
+                primary key (numero_departamento, local)
 );
 
-ALTER TABLE projeto MODIFY COLUMN numero_projeto INTEGER COMMENT 'Número do projeto. É a PK desta tabela.';
+ALTER TABLE localizacoes_departamento COMMENT 'Tabela que armazena as possíveis localizações dos departamentos.';
 
-ALTER TABLE projeto MODIFY COLUMN nome_projeto VARCHAR(15) COMMENT 'Nome do projeto. Deve ser único.';
 
-ALTER TABLE projeto MODIFY COLUMN local_projeto VARCHAR(15) COMMENT 'Localização do projeto.';
+CREATE TABLE projeto (
+                numero_projeto int not null,
+                nome_projeto varchar(15) not null,
+                local_projeto varchar(15),
+                numero_departamento int not null,
+                primary key (numero_projeto)
+);
 
-ALTER TABLE projeto MODIFY COLUMN numero_departamento INTEGER COMMENT 'Número do departamento. É uma FK para a tabela departamento.';
+ALTER TABLE projeto COMMENT 'Tabela que armazena as informações sobre os projetos dos departamentos.';
 
 
 CREATE UNIQUE INDEX projeto_idx
@@ -119,37 +72,34 @@ CREATE UNIQUE INDEX projeto_idx
  ( nome_projeto );
 
 CREATE TABLE trabalha_em (
-                cpf_funcionario CHAR(11) NOT NULL,
-                numero_projeto INT NOT NULL,
-                horas DECIMAL(3,1) NOT NULL,
-                PRIMARY KEY (cpf_funcionario, numero_projeto)
+                cpf_funcionario char(11) not null,
+                numero_projeto int not null,
+                horas decimal(3,1) not null,
+                primary key (cpf_funcionario, numero_projeto)
 );
 
-ALTER TABLE trabalha_em MODIFY COLUMN cpf_funcionario CHAR(11) COMMENT 'CPF do funcionário. Faz parte da PK desta tabela e é uma FK para a tabela funcionário.';
-
-ALTER TABLE trabalha_em MODIFY COLUMN numero_projeto INTEGER COMMENT 'Número do projeto. Faz parte da PK desta tabela e é uma FK para a tabela projeto.';
-
-ALTER TABLE trabalha_em MODIFY COLUMN horas DECIMAL(3, 1) COMMENT 'Horas trabalhadas pelo funcionário neste projeto.';
+ALTER TABLE trabalha_em COMMENT 'Tabela para armazenar quais funcionários trabalham em quais projetos.';
 
 
-CREATE TABLE localizacoes_departamento (
-                numero_departamento INT NOT NULL,
-                local VARCHAR(15) NOT NULL,
-                PRIMARY KEY (numero_departamento, local)
+CREATE TABLE dependente (
+                cpf_funcionario char(11) not null,
+                nome_dependente varchar(15) not null,
+                sexo char(1),
+                data_nascimento date,
+                parentesco varchar(15),
+                primary key (cpf_funcionario, nome_dependente)
 );
 
-ALTER TABLE localizacoes_departamento MODIFY COLUMN numero_departamento INTEGER COMMENT 'Número do departamento. Faz parta da PK desta tabela e também é uma FK para a tabela departamento.';
-
-ALTER TABLE localizacoes_departamento MODIFY COLUMN local VARCHAR(15) COMMENT 'Localização do departamento. Faz parte da PK desta tabela.';
+ALTER TABLE dependente COMMENT 'Tabela que armazena as informações dos dependentes dos funcionários.';
 
 
-ALTER TABLE funcionario ADD CONSTRAINT funcionario_funcionario_fk
-FOREIGN KEY (cpf_supervisor)
+ALTER TABLE dependente ADD CONSTRAINT funcionario_dependente_fk
+FOREIGN KEY (cpf_funcionario)
 REFERENCES funcionario (cpf)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE dependente ADD CONSTRAINT funcionario_dependente_fk
+ALTER TABLE trabalha_em ADD CONSTRAINT funcionario_trabalha_em_fk
 FOREIGN KEY (cpf_funcionario)
 REFERENCES funcionario (cpf)
 ON DELETE NO ACTION
@@ -161,19 +111,19 @@ REFERENCES funcionario (cpf)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE trabalha_em ADD CONSTRAINT funcionario_trabalha_em_fk
-FOREIGN KEY (cpf_funcionario)
+ALTER TABLE funcionario ADD CONSTRAINT funcionario_funcionario_fk
+FOREIGN KEY (cpf_supervisor)
 REFERENCES funcionario (cpf)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE localizacoes_departamento ADD CONSTRAINT departamento_localizacoes_departamento_fk
+ALTER TABLE projeto ADD CONSTRAINT departamento_projeto_fk
 FOREIGN KEY (numero_departamento)
 REFERENCES departamento (numero_departamento)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE projeto ADD CONSTRAINT departamento_projeto_fk
+ALTER TABLE localizacoes_departamento ADD CONSTRAINT departamento_localizacoes_departamento_fk
 FOREIGN KEY (numero_departamento)
 REFERENCES departamento (numero_departamento)
 ON DELETE NO ACTION
@@ -184,15 +134,6 @@ FOREIGN KEY (numero_projeto)
 REFERENCES projeto (numero_projeto)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
-
-ALTER TABLE uvv.funcionario MODIFY COLUMN primeiro_nome varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT 'Primeiro nome do funcionário.';
-ALTER TABLE uvv.funcionario MODIFY COLUMN ultimo_nome varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT 'Sobrenome do funcionário.';
-ALTER TABLE uvv.funcionario MODIFY COLUMN numero_departamento int(11) NOT NULL COMMENT 'Número do departamento do funcionário.';
-ALTER TABLE uvv.departamento MODIFY COLUMN nome_departamento varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT 'Nome do departamento. Deve ser único.';
-ALTER TABLE uvv.departamento MODIFY COLUMN cpf_gerente char(11) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT 'CPF do gerente do departamento. É uma FK para a tabela funcionários.';
-ALTER TABLE uvv.projeto MODIFY COLUMN nome_projeto varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT 'Nome do projeto. Deve ser único.';
-ALTER TABLE uvv.projeto MODIFY COLUMN numero_departamento int(11) NOT NULL COMMENT 'Número do departamento. É uma FK para a tabela departamento.';
-ALTER TABLE uvv.trabalha_em MODIFY COLUMN horas decimal(3,1) NOT NULL COMMENT 'Horas trabalhadas pelo funcionário neste projeto.';
 
 insert into funcionario (primeiro_nome, nome_meio, ultimo_nome, cpf, data_nascimento, endereco, sexo, salario, numero_departamento)
 values ('Jorge', 'E', 'Brito', '88866555576', '1937-11-10', 'Rua do Horto, 35, São Paulo, SP', 'M', '55000', '1');
