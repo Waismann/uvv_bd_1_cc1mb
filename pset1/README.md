@@ -12,7 +12,7 @@
 - PgAdmin
 - DBeaver
 
-Modelo Lógico Elmasri
-Modelo lógico _SQL Power Architect_
+
+### Modelo lógico _SQL Power Architect_
 ![elmasri](https://github.com/henriquewaisman/uvv_bd_1_cc1mb/blob/main/pset1/image/architect.png)
-> Após aiação do projeto na interface apresentada simplifica bastante o processo, pois temos a opção de criar um script automático para diversos Sistemas de Gerenciamento de Bancos de Dados disponíveis no programa. Incluindo o PostgreSQL e o MariaDB
+> Após a criação do projeto lógico, é possível criar um script para diversos Sistemas de Gerenciamento de Bancos de Dados (SGBD) no programa, como o PostgreSQL e o MariaDB, a partir daí é só implementar o script nos respectivos terminais.
