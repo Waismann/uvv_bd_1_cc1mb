@@ -1,3 +1,4 @@
+-- Criação de usuário e banco de dados
 mysql -u root -p
 computacao@raiz
 
@@ -14,7 +15,7 @@ mysql -u henrique -p
 
 USE uvv;
 
-
+-- Criação de tabelas e relações
 CREATE TABLE funcionario (
                 cpf char(11) not null,
                 primeiro_nome varchar(15) not null,
@@ -135,6 +136,7 @@ REFERENCES projeto (numero_projeto)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
+-- Inserção de dados nas tabelas 
 insert into funcionario (primeiro_nome, nome_meio, ultimo_nome, cpf, data_nascimento, endereco, sexo, salario, numero_departamento)
 values ('Jorge', 'E', 'Brito', '88866555576', '1937-11-10', 'Rua do Horto, 35, São Paulo, SP', 'M', '55000', '1');
 
