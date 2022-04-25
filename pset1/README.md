@@ -4,14 +4,13 @@
 #### Monitora: Suellen Miranda Amorim
 
 ### Detalhes do PSet
-> Este pset inclui a criação do projeto lógico Elmasri na interface gráfica SQL Power Architect, seguido da sua inclusão no Sistemas de Gerenciamento de Banco de Dados PostgreSQL e MariaDB.
+> Neste pset foi feita a criação de um projeto lógico na interface gráfica SQL Power Architect, e a inclusão de seu script nos Sistemas de Gerenciamento de Banco de Dados PostgreSQL e MariaDB.
 
-### Programas Utilizados Dentro da Máquina Virtual
-- Oracle VM VirtualBox
+### Programas Utilizados no para a realização do Pset
+- Oracle VM VirtualBox (Terminal)
 - SQL Power Architect
 - PgAdmin
 - DBeaver
-
 
 ### Modelo lógico _SQL Power Architect_
 ![elmasri](https://github.com/henriquewaisman/uvv_bd_1_cc1mb/blob/main/pset1/image/architect.png)
