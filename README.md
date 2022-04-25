@@ -1,6 +1,6 @@
-# Projetos envolvendo Design e Desenvolvimento de Banco de Dados
-### Finalidade
-> Este repositório tem o fim de armazenar projetos acadêmicos denominados _Problem Set_ que têm como foco Banco de Dados e afins.
+# Projetos de _Design e Desenvolvimento de Banco de Dados_
+> Neste repositório será armazenado o projeto _Problem Set_ (Pset) que têm como foco principal exercícios voltados para a matéria de Design e Desenvolvimento de Banco de Dados.
 
-### Problem Set 1
-> O _Problem Set_ é um trabalho acadêmico com diversos desafios envolvendo Banco de Dados, Sistemas de Gerenciamentos de Bancos de Dados, Sistemas de Bancos de Dados e etc. Sendo propostas questões e tarefas que não foram ensinadas em aula. Estimulando assim o auto aprendizado e interesse dos alunos sobre o assunto.
+
+### Pset 1
+> O primeiro _Pset_ é voltado para a construção de um projeto lógico e sua implementação nos SGBDs _PostgreSQL_ e _MariaDB_
