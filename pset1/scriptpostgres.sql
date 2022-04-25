@@ -1,3 +1,4 @@
+-- Criação de usuário e banco de dados
 psql -U postgres
 computacao@raiz
 
@@ -25,6 +26,7 @@ exit
 psql -U henrique uvv
 19812019
 
+-- Criação do esquema
 CREATE SCHEMA elmasri
 AUTHORIZATION henrique;
 
@@ -33,6 +35,7 @@ SELECT CURRENT_SCHEMA();
 SET SEARCH_PATH TO elmasri, "\$user", public;
 ALTER USER henrique SET SEARCH_PATH TO elmasri, "\$user", public;
 
+-- Criação das tabelas e relações
 CREATE TABLE public.funcionario (
                 cpf CHAR(11) NOT NULL,
                 primeiro_nome VARCHAR(15) NOT NULL,
@@ -192,6 +195,7 @@ ALTER TABLE funcionario
 ADD CONSTRAINT check_types 
 CHECK (sexo in ('M', 'F'));
 
+-- Alocar tabelas para o esquema correto
 alter table departamento
 set schema elmasri;
 
@@ -215,6 +219,7 @@ set schema elmasri;
 alter table trabalha_em
 set schema elmasri;
 
+-- Inserção dos dados na tabela
 insert into funcionario (primeiro_nome, nome_meio, ultimo_nome, cpf, data_nascimento, endereco, sexo, salario, numero_departamento)
 values ('Jorge', 'E', 'Brito', '88866555576', '1937-11-10', 'Rua do Horto, 35, São Paulo, SP', 'M', '55000', '1');
 
