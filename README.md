@@ -1,5 +1,5 @@
 # Projeto de Design e Desenvolvimento de Banco de Dados
-> Neste repositório será armazenado o projeto _Problem Set_ (Pset) que têm como foco principal exercícios voltados para a matéria de Design e Desenvolvimento de Banco de Dados.
+> Neste repositório será armazenado o projeto _Problem Set_ (Pset) que tem como foco principal exercícios voltados para a matéria de Design e Desenvolvimento de Banco de Dados.
 
 
 ### Pset 1
