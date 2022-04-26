@@ -4,7 +4,7 @@
 #### Monitora: Suellen Miranda Amorim
 
 ### Detalhes do PSet
-> Neste pset foi feita a criação de um projeto lógico na interface gráfica SQL Power Architect, e a inclusão de seu script nos Sistemas de Gerenciamento de Banco de Dados PostgreSQL e MariaDB.
+> Neste _Pset_ foi feita a criação de um projeto lógico na interface gráfica SQL Power Architect, e a inclusão de seu script nos Sistemas de Gerenciamento de Banco de Dados PostgreSQL e MariaDB.
 
 ### Programas Utilizados no para a realização do Pset
 - Oracle VM VirtualBox (Terminal)
