@@ -12,7 +12,7 @@ group by f.sexo;
 
 --3
 select  d.nome_departamento,
-	concat(primeiro_nome, " ", nome_meio, " ", ultimo_nome) as nome_completo,
+	concat(primeiro_nome, " ", nome_meio, ". ", ultimo_nome) as nome_completo,
 	f.data_nascimento,
 	TIMESTAMPDIFF(year, data_nascimento, curdate()) as idade,
  	f.salario
