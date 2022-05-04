@@ -12,10 +12,10 @@ group by f.sexo;
 
 --3
 select  d.nome_departamento,
-	concat(primeiro_nome, " ", nome_meio, ". ", ultimo_nome) as nome_completo,
-	f.data_nascimento,
-	TIMESTAMPDIFF(year, data_nascimento, curdate()) as idade,
- 	f.salario
-	from departamento d
-	inner join funcionario f
-	on f.numero_departamento = d.numero_departamento;
+concat(primeiro_nome, " ", nome_meio, ". ", ultimo_nome) as nome_completo,
+f.data_nascimento,
+TIMESTAMPDIFF(year, data_nascimento, curdate()) as idade,
+f.salario
+from departamento d
+inner join funcionario f
+on f.numero_departamento = d.numero_departamento;
