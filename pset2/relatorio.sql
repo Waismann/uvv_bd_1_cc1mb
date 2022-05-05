@@ -50,3 +50,15 @@ inner join gerente g on g.cpf = d.cpf_gerente
 order by d.nome_departamento asc, f.salario desc;
 
 --6
+select d.nome_departamento,
+concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome_funcionario,
+dn.nome_dependente,
+timestampdiff(year, dn.data_nascimento, curdate()) as idade,
+(case
+when (dn.sexo = 'M') then 'Masculino'
+else 'Feminino'
+end) as sexo_dependente
+from departamento d
+inner join funcionario f
+on f.numero_departamento = d.numero_departamento
+inner join dependente dn on dn.cpf_funcionario = f.cpf;
