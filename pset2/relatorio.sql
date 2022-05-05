@@ -33,7 +33,7 @@ from funcionario f;
 
 --5
 with gerente as (
-select concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome,
+select concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome,
 f.cpf
 from funcionario f
 )
@@ -48,3 +48,5 @@ inner join funcionario f
 on f.numero_departamento = d.numero_departamento
 inner join gerente g on g.cpf = d.cpf_gerente
 order by d.nome_departamento asc, f.salario desc;
+
+--6
