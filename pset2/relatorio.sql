@@ -62,3 +62,5 @@ from departamento d
 inner join funcionario f
 on f.numero_departamento = d.numero_departamento
 inner join dependente dn on dn.cpf_funcionario = f.cpf;
+
+--7
