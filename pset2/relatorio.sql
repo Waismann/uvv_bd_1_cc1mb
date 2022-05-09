@@ -168,7 +168,7 @@ group by dp.nome_departamento;
 
 -- Questão 15
 select distinct concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_funcionario,
-dp.nome_departamento as Departamento,
+dp.nome_departamento as departamento,
 p.nome_projeto
 from departamento dp
 inner join projeto p 
