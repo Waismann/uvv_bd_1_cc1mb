@@ -64,3 +64,13 @@ on f.numero_departamento = d.numero_departamento
 inner join dependente dn on dn.cpf_funcionario = f.cpf;
 
 --7
+select 
+concat(f.primeiro_nome, " ", f.nome_meio, ". ", f.ultimo_nome) as nome_funcionario,
+dp.nome_departamento as departamento,
+f.salario
+from funcionario f
+left join dependente d
+on f.cpf = d.cpf_funcionario
+inner join departamento dp
+on f.numero_departamento = dp.numero_departamento
+where d.cpf_funcionario is null;
