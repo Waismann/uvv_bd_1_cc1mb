@@ -4,3 +4,7 @@
 
 ### Pset 1
 > O primeiro _Pset_ é voltado para a construção de um projeto lógico e sua implementação nos SGBDs _PostgreSQL_ e _MariaDB_
+
+
+### Pset2
+> O segundo _Pset_ trabalha com o Banco de Dados feito no exercício anterior e tem como objetivo testar os conhecimentos na matéria de Álgebra Relacional
