@@ -65,7 +65,7 @@ inner join dependente dn on dn.cpf_funcionario = f.cpf;
 
 --7
 select 
-concat(f.primeiro_nome, " ", f.nome_meio, ". ", f.ultimo_nome) as nome_funcionario,
+concat(f.primeiro_nome, " ", f.nome_meio, ". ", f.ultimo_nome) as nome_completo,
 dp.nome_departamento as departamento,
 f.salario
 from funcionario f
