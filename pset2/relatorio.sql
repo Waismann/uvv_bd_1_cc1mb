@@ -24,12 +24,11 @@ on f.numero_departamento = d.numero_departamento;
 
 -- Questão 4
 select concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_funcionario,
-f.data_nascimento,
 timestampdiff(year, data_nascimento, curdate()) as idade,
 f.salario as salario_atual,
 (case
 when (f.salario < 35000) then f.salario + (f.salario * 0.2)
-else f.salario + (f.salario * 0.15)
+else round(f.salario + (f.salario * 0.15)), 2)
 end) as salario_ajustado
 from funcionario f;
 
