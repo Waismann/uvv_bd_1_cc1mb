@@ -1,5 +1,6 @@
 --1
-select avg(f.salario) as media_salarial, d.nome_departamento
+select avg(f.salario) as media_salarial,
+d.nome_departamento
 from funcionario f
 inner join departamento d
 on d.numero_departamento = f.numero_departamento
@@ -74,3 +75,105 @@ on f.cpf = d.cpf_funcionario
 inner join departamento dp
 on f.numero_departamento = dp.numero_departamento
 where d.cpf_funcionario is null;
+
+--8
+select dp.nome_departamento departamento, 
+p.nome_projeto as projeto,
+concat(f.primeiro_nome, " ", f.nome_meio, ". ", f.ultimo_nome) as nome_funcionario,
+concat(t.horas, "h") as horas
+from funcionario f 
+inner join departamento dp
+inner join projeto p 
+inner join trabalha_em t
+where f.numero_departamento = dp.numero_departamento 
+and p.numero_projeto = t.numero_projeto 
+and f.cpf = t.cpf_funcionario 
+order by p.numero_projeto;
+
+--9
+select dp.nome_departamento departamento, p.nome_projeto Projeto, sum(distinct(t.horas)) as tempo_total
+from trabalha_em t
+inner join funcionario f
+on t.cpf_funcionario = f.cpf
+inner join departamento dp
+on f.numero_departamento = dp.numero_departamento
+inner join projeto p
+on dp.numero_departamento = p.numero_departamento
+group by p.nome_projeto;
+
+--10
+select dp.nome_departamento as departamento, 
+round(avg(f.salario), 2) as media_salarial
+from funcionario f
+inner join departamento dp
+on dp.numero_departamento = f.numero_departamento
+group by dp.nome_departamento;
+
+--11
+select concat(f.primeiro_nome, " ", f.nome_meio, ". ", f.ultimo_nome) as funcionário, 
+p.nome_projeto,
+(case
+when t.horas > 0 then (t.horas * 50)
+else 0
+end) as total
+from funcionario f
+inner join trabalha_em t
+on f.cpf = t.cpf_funcionario
+inner join projeto p
+on t.numero_projeto = p.numero_projeto
+order by t.horas desc;
+
+--12
+select dp.nome_departamento as departamento,
+p.nome_projeto projeto,
+f.primeiro_nome as funcionario, 
+t.horas
+from funcionario f 
+inner join departamento dp
+on f.numero_departamento = dp.numero_departamento
+inner join projeto p
+on dp.numero_departamento = p.numero_departamento
+inner join trabalha_em t
+on p.numero_projeto = t.numero_projeto
+where t.horas = 0;
+
+--13
+select concat(f.primeiro_nome, " ", f.nome_meio, ". ", f.ultimo_nome) as nome_funcionario,
+(case
+when (f.sexo = 'M') then 'Masculino'
+else 'Feminino'
+end) as sexo,
+timestampdiff(year, f.data_nascimento, curdate()) as idade
+from funcionario f
+union
+select concat(d.nome_dependente, " ", f.nome_meio, ". ", f.ultimo_nome) as nome_dependente,
+(case
+when (d.sexo = 'M') then 'Masculino'
+else 'Feminino'
+end) as sexo,
+timestampdiff(year, d.data_nascimento, curdate()) as idade
+from dependente d 
+inner join funcionario f
+on d.cpf_funcionario = f.cpf
+order by idade desc;
+
+--14
+select dp.nome_departamento as departamento,
+count(f.numero_departamento) as numero_funcionarios
+from funcionario f
+inner join departamento dp
+on f.numero_departamento = dp.numero_departamento
+group by dp.nome_departamento;
+
+--15
+select distinct concat(f.primeiro_nome, " ", f.nome_meio, ". ", f.ultimo_nome) as nome_funcionario,
+dp.nome_departamento as Departamento,
+p.nome_projeto
+from departamento dp
+inner join projeto p 
+inner join trabalha_em t 
+inner join funcionario f 
+where dp.numero_departamento = f.numero_departamento 
+and p.numero_projeto = t.numero_projeto 
+and t.cpf_funcionario = f.cpf
+order by p.nome_projeto desc;
