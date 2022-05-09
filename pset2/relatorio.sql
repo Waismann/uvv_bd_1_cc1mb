@@ -91,7 +91,9 @@ and f.cpf = t.cpf_funcionario
 order by p.numero_projeto;
 
 -- Questão 9
-select dp.nome_departamento departamento, p.nome_projeto Projeto, sum(distinct(t.horas)) as tempo_total
+select dp.nome_departamento departamento, 
+p.nome_projeto, 
+sum(distinct(t.horas)) as tempo_total
 from trabalha_em t
 inner join funcionario f
 on t.cpf_funcionario = f.cpf
