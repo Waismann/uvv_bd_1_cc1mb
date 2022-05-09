@@ -1,4 +1,5 @@
---1
+-- Respostas:
+-- Questão 1
 select round(avg(f.salario), 2) as media_salarial,
 d.nome_departamento
 from funcionario f
@@ -6,12 +7,12 @@ inner join departamento d
 on d.numero_departamento = f.numero_departamento
 group by d.nome_departamento;
 
---2
+-- Questão 2
 select round(avg(f.salario), 2) as media_salarial, f.sexo
 from funcionario f
 group by f.sexo;
 
---3
+-- Questão 3
 select  d.nome_departamento,
 concat(primeiro_nome, ' ', nome_meio, '. ', ultimo_nome) as nome_completo,
 f.data_nascimento,
@@ -21,7 +22,7 @@ from departamento d
 inner join funcionario f
 on f.numero_departamento = d.numero_departamento;
 
---4
+-- Questão 4
 select concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_funcionario,
 f.data_nascimento,
 timestampdiff(year, data_nascimento, curdate()) as idade,
@@ -32,7 +33,7 @@ else f.salario + (f.salario * 0.15)
 end) as salario_ajustado
 from funcionario f;
 
---5
+-- Questão 5
 with gerente as (
 select concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome,
 f.cpf
@@ -50,7 +51,7 @@ on f.numero_departamento = d.numero_departamento
 inner join gerente g on g.cpf = d.cpf_gerente
 order by d.nome_departamento asc, f.salario desc;
 
---6
+-- Questão 6
 select d.nome_departamento,
 concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_funcionario,
 dn.nome_dependente,
@@ -64,7 +65,7 @@ inner join funcionario f
 on f.numero_departamento = d.numero_departamento
 inner join dependente dn on dn.cpf_funcionario = f.cpf;
 
---7
+-- Questão 7
 select 
 concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_completo,
 dp.nome_departamento as departamento,
@@ -76,7 +77,7 @@ inner join departamento dp
 on f.numero_departamento = dp.numero_departamento
 where d.cpf_funcionario is null;
 
---8
+-- Questão 8
 select dp.nome_departamento departamento, 
 p.nome_projeto as projeto,
 concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_funcionario,
@@ -90,7 +91,7 @@ and p.numero_projeto = t.numero_projeto
 and f.cpf = t.cpf_funcionario 
 order by p.numero_projeto;
 
---9
+-- Questão 9
 select dp.nome_departamento departamento, p.nome_projeto Projeto, sum(distinct(t.horas)) as tempo_total
 from trabalha_em t
 inner join funcionario f
@@ -101,7 +102,7 @@ inner join projeto p
 on dp.numero_departamento = p.numero_departamento
 group by p.nome_projeto;
 
---10
+-- Questão 10
 select dp.nome_departamento as departamento, 
 round(avg(f.salario), 2) as media_salarial
 from funcionario f
@@ -109,7 +110,7 @@ inner join departamento dp
 on dp.numero_departamento = f.numero_departamento
 group by dp.nome_departamento;
 
---11
+-- Questão 11
 select concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as funcionário, 
 p.nome_projeto,
 (case
@@ -123,7 +124,7 @@ inner join projeto p
 on t.numero_projeto = p.numero_projeto
 order by t.horas desc;
 
---12
+-- Questão 12
 select dp.nome_departamento as departamento,
 p.nome_projeto projeto,
 f.primeiro_nome as funcionario, 
@@ -137,7 +138,7 @@ inner join trabalha_em t
 on p.numero_projeto = t.numero_projeto
 where t.horas = 0;
 
---13
+-- Questão 13
 select concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_funcionario,
 (case
 when (f.sexo = 'M') then 'Masculino'
@@ -157,7 +158,7 @@ inner join funcionario f
 on d.cpf_funcionario = f.cpf
 order by idade desc;
 
---14
+-- Questão 14
 select dp.nome_departamento as departamento,
 count(f.numero_departamento) as numero_funcionarios
 from funcionario f
@@ -165,7 +166,7 @@ inner join departamento dp
 on f.numero_departamento = dp.numero_departamento
 group by dp.nome_departamento;
 
---15
+-- Questão 15
 select distinct concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_funcionario,
 dp.nome_departamento as Departamento,
 p.nome_projeto
