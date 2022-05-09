@@ -38,12 +38,12 @@ select concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome,
 f.cpf
 from funcionario f
 )
-select d.nome_departamento,
+select d.nome_departamento as departamento,
+g.nome as nome_gerente,
 concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_funcionario,
 f.data_nascimento,
 timestampdiff(year, data_nascimento, curdate()) as idade,
-f.salario,
-g.nome as nome_gerente
+f.salario
 from departamento d
 inner join funcionario f
 on f.numero_departamento = d.numero_departamento
