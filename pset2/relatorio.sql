@@ -28,7 +28,7 @@ timestampdiff(year, data_nascimento, curdate()) as idade,
 f.salario as salario_atual,
 (case
 when (f.salario < 35000) then f.salario + (f.salario * 0.2)
-else round(f.salario + (f.salario * 0.15)), 2)
+else round(f.salario + (f.salario * 0.15), 2)
 end) as salario_ajustado
 from funcionario f;
 
