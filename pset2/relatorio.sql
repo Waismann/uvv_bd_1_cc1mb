@@ -1,5 +1,5 @@
 --1
-select avg(f.salario) as media_salarial,
+select round(avg(f.salario), 2) as media_salarial,
 d.nome_departamento
 from funcionario f
 inner join departamento d
