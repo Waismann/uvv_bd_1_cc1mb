@@ -14,7 +14,7 @@ group by f.sexo;
 
 -- Questão 3
 select  d.nome_departamento,
-concat(primeiro_nome, ' ', nome_meio, '. ', ultimo_nome) as nome_completo,
+concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_funcionario,
 f.data_nascimento,
 timestampdiff(year, data_nascimento, curdate()) as idade,
 f.salario
