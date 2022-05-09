@@ -178,4 +178,4 @@ inner join funcionario f
 where dp.numero_departamento = f.numero_departamento 
 and p.numero_projeto = t.numero_projeto 
 and t.cpf_funcionario = f.cpf
-order by f.nome_funcionario desc;
+order by f.primeiro_nome desc;
