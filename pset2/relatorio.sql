@@ -114,7 +114,6 @@ group by dp.nome_departamento;
 -- Questão 11
 select concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as funcionário, 
 p.nome_projeto,
-t.horas,
 (case
 when t.horas > 0 then (t.horas * 50)
 else 0
