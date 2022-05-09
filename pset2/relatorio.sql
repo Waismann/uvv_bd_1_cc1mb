@@ -54,7 +54,7 @@ order by d.nome_departamento asc, f.salario desc;
 select d.nome_departamento,
 concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_funcionario,
 concat(dn.nome_dependente, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_dependente, 
-timestampdiff(year, dn.data_nascimento, curdate()) as idade,
+timestampdiff(year, dn.data_nascimento, curdate()) as idade_dependente,
 (case
 when (dn.sexo = 'M') then 'Masculino'
 else 'Feminino'
