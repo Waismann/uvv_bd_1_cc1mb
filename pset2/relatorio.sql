@@ -13,7 +13,7 @@ group by f.sexo;
 
 --3
 select  d.nome_departamento,
-concat(primeiro_nome, " ", nome_meio, ". ", ultimo_nome) as nome_completo,
+concat(primeiro_nome, ' ', nome_meio, '. ', ultimo_nome) as nome_completo,
 f.data_nascimento,
 timestampdiff(year, data_nascimento, curdate()) as idade,
 f.salario
@@ -66,7 +66,7 @@ inner join dependente dn on dn.cpf_funcionario = f.cpf;
 
 --7
 select 
-concat(f.primeiro_nome, " ", f.nome_meio, ". ", f.ultimo_nome) as nome_completo,
+concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_completo,
 dp.nome_departamento as departamento,
 f.salario
 from funcionario f
@@ -79,8 +79,8 @@ where d.cpf_funcionario is null;
 --8
 select dp.nome_departamento departamento, 
 p.nome_projeto as projeto,
-concat(f.primeiro_nome, " ", f.nome_meio, ". ", f.ultimo_nome) as nome_funcionario,
-concat(t.horas, "h") as horas
+concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_funcionario,
+concat(t.horas, 'h') as horas
 from funcionario f 
 inner join departamento dp
 inner join projeto p 
@@ -110,7 +110,7 @@ on dp.numero_departamento = f.numero_departamento
 group by dp.nome_departamento;
 
 --11
-select concat(f.primeiro_nome, " ", f.nome_meio, ". ", f.ultimo_nome) as funcionário, 
+select concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as funcionário, 
 p.nome_projeto,
 (case
 when t.horas > 0 then (t.horas * 50)
@@ -138,7 +138,7 @@ on p.numero_projeto = t.numero_projeto
 where t.horas = 0;
 
 --13
-select concat(f.primeiro_nome, " ", f.nome_meio, ". ", f.ultimo_nome) as nome_funcionario,
+select concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_funcionario,
 (case
 when (f.sexo = 'M') then 'Masculino'
 else 'Feminino'
@@ -146,7 +146,7 @@ end) as sexo,
 timestampdiff(year, f.data_nascimento, curdate()) as idade
 from funcionario f
 union
-select concat(d.nome_dependente, " ", f.nome_meio, ". ", f.ultimo_nome) as nome_dependente,
+select concat(d.nome_dependente, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_dependente,
 (case
 when (d.sexo = 'M') then 'Masculino'
 else 'Feminino'
@@ -166,7 +166,7 @@ on f.numero_departamento = dp.numero_departamento
 group by dp.nome_departamento;
 
 --15
-select distinct concat(f.primeiro_nome, " ", f.nome_meio, ". ", f.ultimo_nome) as nome_funcionario,
+select distinct concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_funcionario,
 dp.nome_departamento as Departamento,
 p.nome_projeto
 from departamento dp
