@@ -53,7 +53,7 @@ order by d.nome_departamento asc, f.salario desc;
 -- Questão 6
 select d.nome_departamento,
 concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_funcionario,
-dn.nome_dependente,
+concat(dn.nome_dependente, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_dependente, 
 timestampdiff(year, dn.data_nascimento, curdate()) as idade,
 (case
 when (dn.sexo = 'M') then 'Masculino'
