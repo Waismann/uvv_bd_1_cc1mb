@@ -7,7 +7,7 @@ on d.numero_departamento = f.numero_departamento
 group by d.nome_departamento;
 
 --2
-select avg(f.salario) as media_salarial, f.sexo
+select round(avg(f.salario), 2) as media_salarial, f.sexo
 from funcionario f
 group by f.sexo;
 
