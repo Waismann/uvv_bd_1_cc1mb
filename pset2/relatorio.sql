@@ -27,7 +27,7 @@ select concat(f.primeiro_nome, ' ', f.nome_meio, '. ', f.ultimo_nome) as nome_fu
 timestampdiff(year, data_nascimento, curdate()) as idade,
 f.salario as salario_atual,
 (case
-when (f.salario < 35000) then f.salario + (f.salario * 0.2)
+when (f.salario < 35000) then round(f.salario + (f.salario * 0.2), 2)
 else round(f.salario + (f.salario * 0.15), 2)
 end) as salario_ajustado
 from funcionario f;
