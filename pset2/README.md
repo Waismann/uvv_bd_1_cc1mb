@@ -3,7 +3,7 @@
 ### Questão 1
 > Prepare um relatório que mostre a média salarial dos funcionários de cada departamento.
 
-![image1](https://github.com/henriquewaisman/uvv_bd_1_cc1mb/blob/main/pset2/image/questao1.png)
+![image01](https://github.com/henriquewaisman/uvv_bd_1_cc1mb/blob/main/pset2/image/questao1.png)
 
 ### Questão 2
 > Prepare um relatório que mostre a média salarial dos homens e das mulheres.
