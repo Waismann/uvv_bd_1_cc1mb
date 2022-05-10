@@ -3,7 +3,7 @@
 - ### Nome: Henrique Oliveira Waisman
 - ### Professor: Abrantes Araujo Silva Filho
 
-> #### Este _Pset_ trabalhará com relatórios relacionados com a matéira de Álgebra Relacional aplicados no Banco de Dados feito no primeito _Pset_.
+<br /> > #### Este _Pset_ trabalhará com relatórios relacionados com a matéira de Álgebra Relacional aplicados no Banco de Dados feito no primeito _Pset_.
 
 # Questões
 
