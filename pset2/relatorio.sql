@@ -1,4 +1,3 @@
--- Respostas:
 -- Questão 1
 select round(avg(f.salario), 2) as media_salarial,
 d.nome_departamento
