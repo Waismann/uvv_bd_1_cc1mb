@@ -8,3 +8,6 @@
 
 ### Pset2
 > O segundo _Pset_ trabalha com o Banco de Dados feito no exercício anterior e tem como objetivo testar os conhecimentos na matéria de Álgebra Relacional.
+
+### Pset3
+> O terceiro _Pset_ irá trabalhar com a cláusula _with_ para a query recursiva. 
