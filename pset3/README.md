@@ -1,5 +1,9 @@
-# Pset3
+# Pset 3
+#### Nome: Henrique Oliveira Waisman
+#### Professor: Abrantes Araujo Silva Filho
+#### Monitora: Suellen Miranda Amorim
 
+### Detalhes do PSet
 > No último pset, será trabalhado a querry recursiva (cláusula "with"). 
 
 ## Nova tabela 
