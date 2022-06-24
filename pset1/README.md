@@ -1,4 +1,4 @@
-# PSet 1
+# Pset 1
 #### Nome: Henrique Oliveira Waisman
 #### Professor: Abrantes Araujo Silva Filho
 #### Monitora: Suellen Miranda Amorim
