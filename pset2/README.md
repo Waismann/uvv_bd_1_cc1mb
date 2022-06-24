@@ -1,7 +1,8 @@
 # Pset2
 
-- ### Nome: Henrique Oliveira Waisman
-- ### Professor: Abrantes Araujo Silva Filho 
+#### Nome: Henrique Oliveira Waisman
+#### Professor: Abrantes Araujo Silva Filho
+#### Monitora: Suellen Miranda Amorim
 
 > #### Este _Pset_ trabalhará com relatórios relacionados com a matéria de Álgebra Relacional aplicados no Banco de Dados feito no primeito _Pset_.
 
