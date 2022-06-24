@@ -4,7 +4,7 @@
 #### Monitora: Suellen Miranda Amorim
 
 ### Detalhes do PSet
-> #### Este _Pset_ trabalhará com relatórios relacionados com a matéria de Álgebra Relacional aplicados no Banco de Dados feito no primeito _Pset_.
+> Este _Pset_ trabalhará com relatórios relacionados com a matéria de Álgebra Relacional aplicados no Banco de Dados feito no primeito _Pset_.
 
 # Questões
 
